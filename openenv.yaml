@@ -1,0 +1,46 @@
+name: simple-echo-env
+version: 0.1.0
+description: A minimal echo environment for learning OpenEnv basics
+author: labwale
+created: 2024-03-26
+
+tasks:
+  - id: task1
+    name: Send any message
+    difficulty: easy
+    description: Send at least one message to the environment
+    grader: grader_task1_short_message
+
+  - id: task2
+    name: Send a medium message
+    difficulty: medium
+    description: Send a message with at least 20 characters
+    grader: grader_task2_medium_message
+
+  - id: task3
+    name: Send multiple messages
+    difficulty: hard
+    description: Send multiple messages totaling 100+ characters
+    grader: grader_task3_long_message
+
+action_space:
+  type: object
+  properties:
+    message:
+      type: string
+      description: Message to echo back
+
+observation_space:
+  type: object
+  properties:
+    echoed_message:
+      type: string
+    step_count:
+      type: integer
+
+reward_range:
+  min: 0.0
+  max: 1.0
+
+episode_length:
+  max: 10
